@@ -1,24 +1,27 @@
 import java.util.*;
-
 /// Masih ada beberapa yang kurang
 ///  diantaranya : Saat si pembunuh dibunuh, harusnya gamasuk list di output
-///                biar ga infinite, Ganti while dengan min 1 baris dan max 1000 baris
 ///                Huruf depannya ganti Kapital
-
-public class daftarPencarianOrangKel5 {
+public class DaftarPencarianOrangKel5 {
 
     public static void main(String[] args) {
         // Inisialisasi HashMap untuk menyimpan data pembunuh dan korban
         HashMap<String, List<String>> pembunuhKorban = new HashMap<>();
 
-       
         Scanner scanner = new Scanner(System.in);
         System.out.print("Masukkan data pembunuh dan korban (masukkan spasi untuk berhenti): ");
 
-        while (scanner.hasNextLine()) { // Loop Terus ( ini harus diganti jadi min 1 dan max 1000)
+        int lineCount = 0;
+
+        while (lineCount < 1000) {  // Loop dengan minimal 1 baris dan maksimal 1000 baris
             String line = scanner.nextLine();
             if (line.trim().isEmpty()) { // Periksa jika inputan kosong
-                break;
+                if (lineCount >= 1) {
+                    break;
+                } else {
+                    System.err.println("Anda harus memasukkan input minimal satu baris data!");
+                    continue;
+                }
             }
 
             String[] data = line.split(" "); // Pisahkan data dengan spasi
@@ -37,6 +40,8 @@ public class daftarPencarianOrangKel5 {
                 }
                 pembunuhKorban.get(pembunuh).add(korban);
             }
+
+            lineCount++;
         }
 
         // Ini kalo mau sort berdasarkan abjad
@@ -47,7 +52,7 @@ public class daftarPencarianOrangKel5 {
         System.out.println("\nDAFTAR PENCARIAN ORANG KASUS PEMBUNUHAN");
         for (String pembunuh : pembunuhTerurut) {
             int jumlahKorban = pembunuhKorban.get(pembunuh).size();
-            System.out.println(pembunuh + " " + jumlahKorban );
+            System.out.println(pembunuh + " " + jumlahKorban);
         }
     }
 }
