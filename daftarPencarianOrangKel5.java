@@ -9,7 +9,7 @@ public class DaftarPencarianOrangKel5 {
         HashMap<String, List<String>> pembunuhKorban = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Masukkan data pembunuh dan korban (masukkan spasi untuk berhenti): ");
+        System.out.println ("Masukkan data pembunuh dan korban (klik spasi untuk berhenti): ");
 
         int lineCount = 0;
 
@@ -19,14 +19,14 @@ public class DaftarPencarianOrangKel5 {
                 if (lineCount >= 1) {
                     break;
                 } else {
-                    System.err.println("Anda harus memasukkan input minimal satu baris data!");
+                    System.err.println ("Anda harus memasukkan input minimal satu baris data!");
                     continue;
                 }
             }
 
             String[] data = line.split(" "); // Pisahkan data dengan spasi
             if (data.length != 2) { // Periksa format data
-                System.err.println("Format data salah! Contoh: PEMBUNUH KORBAN");
+                System.err.println ("Format data salah! Contoh: PEMBUNUH KORBAN");
                 continue;
             }
 
