@@ -1,18 +1,21 @@
 import java.util.*;
-//coba cek gini bukan?
 
 public class DaftarPencarianOrangKel5 {
 
     public static void main(String[] args) {
+        // Inisialisasi HashMap untuk menyimpan data pembunuh dan korban
         HashMap<String, List<String>> pembunuhKorban = new HashMap<>();
         Set<String> korbanSet = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Masukkan data pembunuh dan korban (contoh: PEMBUNUH KORBAN)."); //Nambahin cara penggunaan
+        System.out.println("Tekan Enter pada baris kosong setelah selesai memasukkan data.");
+
         int lineCount = 0;
 
-        while (lineCount < 1000) {
+        while (lineCount < 1000) {  // Loop dengan minimal 1 baris dan maksimal 1000 baris
             String line = scanner.nextLine();
-            if (line.trim().isEmpty()) {
+            if (line.trim().isEmpty()) { // Periksa jika inputan kosong
                 if (lineCount >= 1) {
                     break;
                 } else {
@@ -21,8 +24,8 @@ public class DaftarPencarianOrangKel5 {
                 }
             }
 
-            String[] data = line.split(" ");
-            if (data.length != 2) {
+            String[] data = line.split(" "); // Pisahkan data dengan spasi
+            if (data.length != 2) { // Periksa format data
                 System.err.println("Format data salah! Contoh: PEMBUNUH KORBAN");
                 continue;
             }
@@ -30,7 +33,8 @@ public class DaftarPencarianOrangKel5 {
             String pembunuh = data[0].toLowerCase();
             String korban = data[1].toLowerCase();
 
-            if (!pembunuh.equals(korban)) {
+            if (!pembunuh.equals(korban)) { // Kalo bunuh diri gaakan masuk list
+                // Tambahkan data ke HashMap
                 if (!pembunuhKorban.containsKey(pembunuh)) {
                     pembunuhKorban.put(pembunuh, new ArrayList<>());
                 }
@@ -41,13 +45,16 @@ public class DaftarPencarianOrangKel5 {
             lineCount++;
         }
 
+        // Ini kalo mau sort berdasarkan abjad
         List<String> pembunuhTerurut = new ArrayList<>(pembunuhKorban.keySet());
         Collections.sort(pembunuhTerurut);
 
+        // Outputnya nich
         System.out.println("\nDaftar Pencarian Orang Kasus Pembunuhan");
         for (String pembunuh : pembunuhTerurut) {
-            if (!korbanSet.contains(pembunuh)) {
+            if (!korbanSet.contains(pembunuh) && pembunuhKorban.get(pembunuh).size() > 0) { // Saat si pembunuhnya telah dibunuh atau tidak ada korban, gamasuk list di output
                 int jumlahKorban = pembunuhKorban.get(pembunuh).size();
+                // Buat huruf depannya kapital
                 System.out.println(Character.toUpperCase(pembunuh.charAt(0)) + pembunuh.substring(1) + " " + jumlahKorban);
             }
         }
