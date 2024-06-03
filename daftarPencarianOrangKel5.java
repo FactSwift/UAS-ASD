@@ -9,7 +9,7 @@ public class DaftarPencarianOrangKel5 {
         HashMap<String, List<String>> pembunuhKorban = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println ("Masukkan data pembunuh dan korban (klik spasi untuk berhenti): ");
+        
 
         int lineCount = 0;
 
