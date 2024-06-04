@@ -26,7 +26,7 @@ public class DaftarPencarianOrangKel5 {
 
             String[] data = line.split(" "); // Pisahkan data dengan spasi
             if (data.length != 2) { // Periksa format data
-                System.err.println("Format data salah! Contoh: PEMBUNUH KORBAN");
+                System.err.println("Format data salah! Contoh: Pembunuh Korban");
                 continue;
             }
 
