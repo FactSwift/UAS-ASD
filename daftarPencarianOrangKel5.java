@@ -8,7 +8,7 @@ public class DaftarPencarianOrangKel5 {
         Set<String> korbanSet = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Masukkan data pembunuh dan korban (contoh: PEMBUNUH KORBAN)."); //Nambahin cara penggunaan
+        System.out.println("Masukkan data pembunuh dan korban (contoh: Pembunuh Korban)."); //Nambahin cara penggunaan
         System.out.println("Tekan Enter pada baris kosong setelah selesai memasukkan data.");
 
         int lineCount = 0;
