@@ -50,7 +50,7 @@ public class DaftarPencarianOrangKel5 {
         Collections.sort(pembunuhTerurut);
 
         // Outputnya nich
-        System.out.println("\nDaftar Pencarian Orang Kasus Pembunuhan");
+        System.out.println("\nDAFTAR PENCARIAN ORANG KASUS PEMBUNUHAN");
         for (String pembunuh : pembunuhTerurut) {
             if (!korbanSet.contains(pembunuh) && pembunuhKorban.get(pembunuh).size() > 0) { // Saat si pembunuhnya telah dibunuh atau tidak ada korban, gamasuk list di output
                 int jumlahKorban = pembunuhKorban.get(pembunuh).size();
