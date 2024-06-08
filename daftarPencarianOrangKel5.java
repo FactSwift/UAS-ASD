@@ -4,7 +4,7 @@ public class daftarPencarianOrangKel5 {
 
     public static void main(String[] args) {
         // Inisialisasi Map untuk menyimpan data pembunuh dan korban
-        LinkedHashMap<String, Integer> pembunuhKorban = new LinkedHashMap<>();
+        Map<String, Integer> pembunuhKorban = new HashMap<>();
         Set<String> korbanSet = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
 
