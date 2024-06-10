@@ -12,8 +12,9 @@ public class daftarPencarianOrangKel5 {
         System.out.println("Tekan Enter pada baris kosong setelah selesai memasukkan data.");
 
         int lineCount = 0;
+        int maxLines = 1000;
 
-        while (lineCount < 1000) {
+        while (lineCount < maxLines) {
             String line = scanner.nextLine();
             if (line.trim().isEmpty()) {
                 if (lineCount >= 1) {
@@ -33,12 +34,22 @@ public class daftarPencarianOrangKel5 {
             String pembunuh = data[0];
             String korban = data[1];
 
+            if (pembunuh.length() > 10 || korban.length() > 10) {
+                System.err.println("Nama pembunuh dan korban harus memiliki panjang maksimal 10 karakter!");
+                continue;
+            }
+
             if (!pembunuh.equals(korban)) {
                 pembunuhKorban.put(pembunuh, pembunuhKorban.getOrDefault(pembunuh, 0) + 1);
                 korbanSet.add(korban);
             }
 
             lineCount++;
+
+            if (lineCount == maxLines) {
+                System.out.println("\nPeringatan: Anda telah mencapai batas maksimal input.");
+                System.exit(0);
+            }
         }
 
         // Output
