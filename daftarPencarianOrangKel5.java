@@ -14,7 +14,7 @@ public class daftarPencarianOrangKel5 {
         int lineCount = 0;
         int maxLines = 1000;
 
-        while (lineCount < maxLines) {
+        while (lineCount < maxLines + 1) {
             String line = scanner.nextLine();
             if (line.trim().isEmpty()) {
                 if (lineCount >= 1) {
@@ -46,7 +46,7 @@ public class daftarPencarianOrangKel5 {
 
             lineCount++;
 
-            if (lineCount == maxLines) {
+            if (lineCount == maxLines + 1) {
                 System.out.println("\nPeringatan: Anda telah mencapai batas maksimal input.");
                 System.exit(0);
             }
