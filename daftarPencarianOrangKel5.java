@@ -48,7 +48,7 @@ public class daftarPencarianOrangKel5 {
 
             if (lineCount == maxLines + 1) {
                 System.out.println("\nPeringatan: Anda telah mencapai batas maksimal input.");
-                System.exit(0);
+                continue;
             }
         }
 
