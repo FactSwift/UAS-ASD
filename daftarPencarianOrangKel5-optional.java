@@ -53,8 +53,8 @@ public class daftarPencarianOrangKel5 {
                 String korban = data[1];
 
                 if (pembunuh.length() > 10 || korban.length() > 10) {
-                    System.err.println("Nama pembunuh dan korban harus memiliki panjang maksimal 10 karakter!");
-                    continue;
+                    System.err.println("\nNama pembunuh dan korban harus memiliki panjang maksimal 10 karakter!");
+                    System.exit(0);
                 }
 
                 if (!pembunuh.equals(korban)) {
