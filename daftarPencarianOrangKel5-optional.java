@@ -19,6 +19,8 @@ public class daftarPencarianOrangKel5 {
             if (inputSource.equals("file")) {
                 System.out.println("Masukkan nama file:");
                 String fileName = scanner.nextLine().trim();
+                
+                // File checker
                 reader = new BufferedReader(new FileReader(fileName));
             } else if (inputSource.equals("console")) {
                 reader = new BufferedReader(new InputStreamReader(System.in));
@@ -50,6 +52,11 @@ public class daftarPencarianOrangKel5 {
                 String pembunuh = data[0];
                 String korban = data[1];
 
+                if (pembunuh.length() > 10 || korban.length() > 10) {
+                    System.err.println("Nama pembunuh dan korban harus memiliki panjang maksimal 10 karakter!");
+                    continue;
+                }
+
                 if (!pembunuh.equals(korban)) {
                     // add set
                     korbanSet.add(korban);
@@ -61,7 +68,7 @@ public class daftarPencarianOrangKel5 {
                 lineCount++;
             }
 
-            // Sortir pembunuh berdasarkan abjad
+            // Sortir berdasarkan abjad
             List<String> pembunuhTerurut = new ArrayList<>(pembunuhKorbanCount.keySet());
             Collections.sort(pembunuhTerurut);
 
@@ -73,6 +80,8 @@ public class daftarPencarianOrangKel5 {
                     System.out.println(pembunuh + " " + jumlahKorban);
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.err.println("File tidak ditemukan: " + e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
